@@ -1,18 +1,15 @@
-import { Counter } from './Counter'
+// import { Counter } from './Counter'
+// import { Logos } from './Logos'
+// import { Layout } from './Layout'
 import './App.css'
-import { Logos } from './Logos'
+import { SignLayout } from './SignIn'
 
 function App() {
 
 
   return (
     <>
-      <Logos />
-      <h1>Vite + React</h1>
-      <Counter />
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <SignLayout />
     </>
   )
 }
