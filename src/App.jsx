@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Counter } from './Counter'
 import './App.css'
 import { Logos } from './Logos'
