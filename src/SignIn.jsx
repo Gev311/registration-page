@@ -26,7 +26,6 @@ export const SignLayout = () => {
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-
                     />
                 </div>
                 <div>
@@ -35,7 +34,6 @@ export const SignLayout = () => {
                         id="surname"
                         value={surName}
                         onChange={(e) => setSurName(e.target.value)}
-
                     />
                 </div>
                 <div>
@@ -60,7 +58,6 @@ export const SignLayout = () => {
                         value={eMail}
                         type="email"
                         onChange={(e) => setEmail(e.target.value)}
-
                     />
                 </div>
                 <div>
@@ -69,7 +66,6 @@ export const SignLayout = () => {
                         id="usrName"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-
                     />
                 </div>
                 <div>
