@@ -11,6 +11,7 @@ export const SignLayout = () => {
         console.log("Name:", name);
         console.log("Surname:", surName);
         console.log("Age:", age);
+        console.log("eMail:", eMail);
         console.log("Username:", username);
         console.log("Password:", password);
     };
