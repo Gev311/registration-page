@@ -6,6 +6,14 @@ export const SignLayout = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [eMail, setEmail] = useState("");
+    const [errors, setErrors] = useState({
+        name: false,
+        surName: false,
+        age: false,
+        username: false,
+        password: false,
+        eMail: false,
+    })
 
     const signInValue = () => {
         console.log("Name:", name);
@@ -15,20 +23,24 @@ export const SignLayout = () => {
         console.log("Username:", username);
         console.log("Password:", password);
     };
+
     return (
         <div id="SignLayout">
             <div className="form-card">
                 <div id="header">
                     <h1>Sign in</h1>
                 </div>
+
                 <div>
                     <label>Name </label>
                     <input
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        onBlur={(e) => setErrors(e.target.value)}
                     />
                 </div>
+
                 <div>
                     <label>Surname </label>
                     <input
@@ -37,6 +49,7 @@ export const SignLayout = () => {
                         onChange={(e) => setSurName(e.target.value)}
                     />
                 </div>
+
                 <div>
                     <label>Age </label>
                     <select
@@ -52,6 +65,7 @@ export const SignLayout = () => {
                         ))}
                     </select>
                 </div>
+
                 <div>
                     <label>eMail </label>
                     <input
@@ -61,6 +75,7 @@ export const SignLayout = () => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
+
                 <div>
                     <label>Username </label>
                     <input
@@ -69,6 +84,7 @@ export const SignLayout = () => {
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
+
                 <div>
                     <label>Password </label>
                     <input
@@ -78,9 +94,11 @@ export const SignLayout = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
+
                 <div>
                     <button onClick={signInValue}>Sign in</button>
                 </div>
+
             </div>
         </div>
 
