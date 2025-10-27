@@ -1,9 +1,17 @@
 import { useState } from "react";
 import './Register.css';
+import { useState } from "react";
+import './Register.css';
 export const Register = () => {
     const [form, setForm] = useState({
         firstName: '',
         lastName: '',
+        age: '',
+        gender: '',
+        phoneNumber: '',
+        experience: '',
+        primaryFocus: '',
+        certificate: '',
         age: '',
         gender: '',
         phoneNumber: '',
@@ -45,9 +53,7 @@ export const Register = () => {
                     || !/^\d+$/.test(form.phoneNumber);
                 break;
             case 'age':
-                newErrors.ageErr =
-                    form.age === ''
-                    || form.age === '0';
+                newErrors.ageErr = form.age === ''
                 break;
             case 'gender':
                 newErrors.genderErr = form.gender === '';
@@ -92,6 +98,7 @@ export const Register = () => {
             <h2>Register Form</h2>
             <div id='form'>
                 {/*First name*/}
+                {/*First name*/}
                 <div className="form-field">
                     <label htmlFor="firstName">First Name </label>
                     <input
@@ -107,7 +114,21 @@ export const Register = () => {
                     {errors.firstNameErr && (
                         <span>*First Name field is required <div>can't contain any numbers</div></span>
                     )}
+                    <input
+                        name="firstName"
+                        id="firstName"
+                        type="text"
+                        value={form.firstName}
+                        onChange={(e) => onInputChange('firstName', e.target.value)}
+                        onBlur={(e) => handleErrors(e.target.name)}
+                    >
+
+                    </input>
+                    {errors.firstNameErr && (
+                        <span>*First Name field is required <div>can't contain any numbers</div></span>
+                    )}
                 </div>
+                {/*Last name*/}
                 {/*Last name*/}
                 <div className="form-field">
                     <label htmlFor="lastName">Last Name </label>
@@ -121,7 +142,18 @@ export const Register = () => {
                     {errors.lastNameErr && (
                         <span>*Last Name field is required <div>can't contain any numbers</div></span>
                     )}
+                    <input
+                        name="lastName"
+                        type="text"
+                        value={form.lastName}
+                        onChange={(e) => onInputChange('lastName', e.target.value)}
+                        onBlur={(e) => handleErrors(e.target.name)}
+                    ></input>
+                    {errors.lastNameErr && (
+                        <span>*Last Name field is required <div>can't contain any numbers</div></span>
+                    )}
                 </div>
+                {/*Age*/}
                 {/*Age*/}
                 <div className="form-field">
                     <label htmlFor="age">Age </label>
@@ -131,7 +163,7 @@ export const Register = () => {
                         onChange={(e) => onInputChange('age', e.target.value)}
                         onBlur={(e) => handleErrors(e.target.name)}
                     >
-                        <option value={"0"}>Select Your Age</option>
+                        <option value={""}>Select Your Age</option>
                         {ageOptions.map((age, index) => (
                             <option value={age} key={index}>{age}</option>
                         ))}
@@ -140,7 +172,11 @@ export const Register = () => {
                 {errors.ageErr && (
                     <span>*Age is required</span>
                 )}
+                {errors.ageErr && (
+                    <span>*Age is required</span>
+                )}
 
+                {/*Gender*/}
                 {/*Gender*/}
                 <div className="form-field">
                     <label htmlFor="gender">Gender </label>
@@ -151,10 +187,21 @@ export const Register = () => {
                         onBlur={(e) => handleErrors(e.target.name)}
                     >
                         <option>Select your gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
+                        <select
+                            name="gender"
+                            id="gender"
+                            onChange={(e) => onInputChange('gender', e.target.value)}
+                            onBlur={(e) => handleErrors(e.target.name)}
+                        >
+                            <option>Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
                 </div>
+                {errors.genderErr && (
+                    <span>*Gender is required</span>
+                )}
+                {/*Phone number*/}
                 {errors.genderErr && (
                     <span>*Gender is required</span>
                 )}
@@ -171,7 +218,18 @@ export const Register = () => {
                     {errors.phoneNumberErr && (
                         <span>*Phone number is required, <div>can contain only numbers</div></span>
                     )}
+                    <input
+                        name="phoneNumber"
+                        type="text"
+                        value={form.phoneNumber}
+                        onChange={(e) => onInputChange('phoneNumber', e.target.value)}
+                        onBlur={(e) => handleErrors(e.target.name)}
+                    ></input>
+                    {errors.phoneNumberErr && (
+                        <span>*Phone number is required, <div>can contain only numbers</div></span>
+                    )}
                 </div>
+                {/*Experience*/}
                 {/*Experience*/}
                 <div className="form-field">
                     <label htmlFor="Experience">Experience </label>
@@ -199,7 +257,32 @@ export const Register = () => {
                     {errors.certificateErr && (
                         <span>*Certificate field is required</span>
                     )}
+                    <input
+                        name="experience"
+                        type="text"
+                        value={form.experience}
+                        onChange={(e) => onInputChange('experience', e.target.value)}
+                        onBlur={(e) => handleErrors(e.target.name)}
+                    ></input>
+                    {errors.experienceErr && (
+                        <span>*Experience field is required</span>
+                    )}
                 </div>
+                {/*Certificate*/}
+                <div className="form-field">
+                    <label htmlFor="Certificate">Certificate </label>
+                    <input
+                        name="certificate"
+                        type="text"
+                        value={form.certificate}
+                        onChange={(e) => onInputChange('certificate', e.target.value)}
+                        onBlur={(e) => handleErrors(e.target.name)}
+                    ></input>
+                    {errors.certificateErr && (
+                        <span>*Certificate field is required</span>
+                    )}
+                </div>
+                {/*Primary Focus*/}
                 {/*Primary Focus*/}
                 <div className="form-field">
                     <label htmlFor="primaryFocus">Primary Focus </label>
@@ -209,10 +292,51 @@ export const Register = () => {
                         onChange={(e) => onInputChange('primaryFocus', e.target.value)}
                         onBlur={(e) => handleErrors(e.target.name)}>
                         <option value={''}>Select your primary focus</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value='both'>Both</option>
-                    </select>
+                        <label htmlFor="primaryFocus">Primary Focus </label>
+                        <select
+                            name="primaryFocus"
+                            id="primaryFocus"
+                            onChange={(e) => onInputChange('primaryFocus', e.target.value)}
+                            onBlur={(e) => handleErrors(e.target.name)}>
+                            <option value={''}>Select your primary focus</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value='both'>Both</option>
+                        </select>
+                </div>
+                {errors.primaryFocusErr && (
+                    <span>*Please choose primary focus</span>
+                )}
+                {/*Password*/}
+                <div className="form-field">
+                    <label htmlFor="password">Password </label>
+                    <input
+                        name="password"
+                        type="password"
+                        value={form.password}
+                        onChange={(e) => onInputChange('password', e.target.value)}
+                        onBlur={(e) => handleErrors(e.target.name)}
+                    ></input>
+                    {errors.passwordErr && (
+                        <span>*Password field is required</span>
+                    )}
+                </div>
+                {/*Password confirmation*/}
+                <div className="form-field">
+                    <label htmlFor="confirmPassword">Confirm Password </label>
+                    <input
+                        name="confirmPassword"
+                        type="password"
+                        value={form.confirmPassword}
+                        onChange={(e) => onInputChange('confirmPassword', e.target.value)}
+                        onBlur={(e) => handleErrors(e.target.name)}
+                    ></input>
+                </div>
+                {errors.confirmPasswordErr && (
+                    <span>*Passwords do not match</span>
+                )}
+                <div className="action">
+                    <button onClick={signInValue}>Register</button>
                 </div>
                 {errors.primaryFocusErr && (
                     <span>*Please choose primary focus</span>
@@ -249,6 +373,7 @@ export const Register = () => {
                     <button onClick={signInValue}>Register</button>
                 </div>
             </div>
+        </div >
         </div >
     )
 }
