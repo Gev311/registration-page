@@ -1,0 +1,25 @@
+#form {
+    text-align: left;
+}
+
+#form .form-field label {
+    font-size: 12px;
+}
+
+
+
+#form .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+#form .action {
+    display: flex;
+    justify-content: right;
+}
+
+#form span {
+    font-size: 10px;
+    color: red;
+}
