@@ -1,0 +1,8 @@
+.successToast {
+    font-size: 26px;
+    color: white;
+    border: 1px solid;
+    padding: 33px;
+    background-color: green;
+    border-radius: 15px;
+}

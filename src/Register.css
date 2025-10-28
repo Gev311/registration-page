@@ -2,6 +2,12 @@
     text-align: left;
 }
 
+#form h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid;
+}
+
 #form .form-field label {
     font-size: 12px;
 }
