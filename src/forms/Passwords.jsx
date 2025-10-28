@@ -1,6 +1,20 @@
 export const Passwords = ({ form, errors, onInputChange, handleErrors }) => {
     return (
         <>
+            {/*Email*/}
+            <div className="form-field">
+                <label htmlFor="email">Email </label>
+                <input
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => onInputChange('email', e.target.value)}
+                    onBlur={(e) => handleErrors(e.target.name)}
+                ></input>
+                {errors.emailErr && (
+                    <span>*Email field is required</span>
+                )}
+            </div>
             {/*Password*/}
             <div className="form-field">
                 <label htmlFor="password">Password </label>

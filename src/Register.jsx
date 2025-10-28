@@ -15,6 +15,7 @@ export const Register = () => {
         experience: '',
         primaryFocus: '',
         certificate: '',
+        email: '',
         password: '',
         confirmPassword: '',
     });
@@ -27,6 +28,7 @@ export const Register = () => {
         experienceErr: false,
         primaryFocusErr: false,
         certificateErr: false,
+        emailErr: false,
         passwordErr: false,
         confirmPasswordErr: false,
     });
@@ -64,6 +66,8 @@ export const Register = () => {
             case 'certificate':
                 newErrors.certificateErr = form.certificate.length < 4;
                 break;
+            case 'email':
+                newErrors.emailErr = form.email.length < 6;
             case 'password':
                 newErrors.passwordErr = form.password.length < 8;
                 break;
@@ -107,7 +111,7 @@ export const Register = () => {
                     onInputChange={onInputChange}
                     handleErrors={handleErrors}
                 />
-                <h4>Passwords</h4>
+                <h4>Account Information</h4>
                 <Passwords
                     form={form}
                     errors={errors}
