@@ -4,8 +4,7 @@ import './Register.css';
 import { JobExperience } from "./forms/JobExperience";
 import { PersonalInfo } from "./forms/PersonalInfo";
 import { Passwords } from "./forms/Passwords";
-// import { PersonalInfo } from "./forms/PersonalInfo";
-export const Register = () => {
+export const Register = ({ onSubmit }) => {
     const [form, setForm] = useState({
         firstName: '',
         lastName: '',
@@ -86,16 +85,16 @@ export const Register = () => {
         })
     };
 
-    const signInValue = () => {
-        console.log("Name:", form.firstName);
-        console.log("Surname:", form.lastName);
-        console.log("Age:", form.age);
-        console.log("Phone Number:", form.phoneNumber)
-        console.log("Password:", form.password);
+
+    const handleSubmit = () => {
+        const allValid = Object.values(errors).every(err => err === false);
+        onSubmit(errors);
     };
+
+
     return (
         <div>
-            <h2>Register Form</h2>
+            <h2>Registration Form</h2>
             <div id='form'>
                 <h4>Personal Information</h4>
                 <PersonalInfo
@@ -122,7 +121,7 @@ export const Register = () => {
 
 
                 <div className="action">
-                    <button onClick={signInValue}>Register</button>
+                    <button onClick={handleSubmit}>Register</button>
                 </div>
             </div>
         </div >
