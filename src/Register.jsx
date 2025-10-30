@@ -87,7 +87,6 @@ export const Register = ({ onSubmit }) => {
 
 
     const handleSubmit = () => {
-        const allValid = Object.values(errors).every(err => err === false);
         onSubmit(errors);
     };
 
