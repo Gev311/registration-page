@@ -7,6 +7,7 @@ function App() {
   const signInValue = (errors) => {
     const allValid = Object.values(errors).every(err => err === false);
     setAllValid(allValid);
+    console.log(allValid)
   };
   return (
     <>
