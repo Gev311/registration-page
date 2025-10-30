@@ -7,21 +7,10 @@ function App() {
   const signInValue = (errors) => {
     const allValid = Object.values(errors).every(err => err === false);
     setAllValid(allValid);
-    console.log(allValid);
+    console.log(allValid)
   };
-  return (
-    <>
-      <div>
-        {!allValid ? (
-          <Register
-            onSubmit={signInValue} />
-        ) : (
-          <Success />
-        )}
+  return !allValid ? <Register onSubmit={signInValue} /> : <Success />
 
-      </div>
-    </>
-  )
 }
 
 export default App
